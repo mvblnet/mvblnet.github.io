@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Uma surpresa muito especial ✨</title>
+  <meta name="description" content="Uma surpresa muito especial está para chegar." />
+  <meta property="og:title" content="Uma surpresa muito especial ✨" />
+  <meta property="og:description" content="Uma surpresa muito especial está para chegar." />
+  <meta property="og:type" content="website" />
+  <meta name="theme-color" content="#ffd7e2" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --pink-50:#fff5f8; --pink-100:#ffe6ee; --pink-200:#ffd7e2; --pink-300:#ffc3d4; --pink-400:#ffa9c3; --pink-500:#ff8fb2;
+      --rose-400:#ffb3c7; --rose-500:#ff9ab6; --lav-200:#f3ecff; --lav-300:#e7dbff; --gold:#ffdca8; --night:#2b2b3a;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0; font-family:'Poppins',system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,'Helvetica Neue',Arial,sans-serif; color:#3a3a3a;
+      background: radial-gradient(1200px 600px at 80% -10%, var(--lav-200), transparent),
+                  radial-gradient(800px 500px at 0% 100%, var(--pink-100), transparent),
+                  linear-gradient(180deg, #fff, var(--pink-50));
+      overflow:hidden;
+    }
+    .starfield{
+      position:fixed; inset:0; z-index:0; pointer-events:none; background:transparent;
+    }
+    .container{
+      position:relative; z-index:3; min-height:100dvh; display:grid; place-items:center; padding:clamp(16px, 5vw, 48px);
+    }
+    .card{
+      width:min(900px, 92vw); background:rgba(255,255,255,.7); backdrop-filter: blur(8px);
+      border:1px solid rgba(255, 168, 197, .35); border-radius:28px; box-shadow:0 20px 60px rgba(255, 143, 178, .25);
+      padding:clamp(24px, 6vw, 48px); text-align:center; position:relative; overflow:hidden;
+    }
+    .badge{
+      display:inline-flex; align-items:center; gap:.6ch; padding:.5rem .9rem; border-radius:999px; font-weight:600;
+      background:linear-gradient(90deg, var(--pink-300), var(--rose-400)); color:#7a1845; box-shadow:0 4px 14px rgba(255, 143, 178, .35);
+      letter-spacing:.2px; font-size:.95rem;
+    }
+    .title{font-weight:700; font-size:clamp(1.8rem, 4.8vw, 3.2rem); margin:18px auto 8px; color:#65193b; line-height:1.15}
+    .subtitle{font-weight:300; font-size:clamp(1rem, 2.6vw, 1.25rem); color:#7b4761}
+
+    .illustration{width:min(540px, 80vw); margin:22px auto 6px; display:block}
+
+    .shh{display:inline-flex; align-items:center; gap:.5rem; color:#8a5670; font-size:.95rem; opacity:.85}
+    .shh svg{width:18px; height:18px}
+
+    .floaty{position:absolute; inset:auto; pointer-events:none; opacity:.7; filter:drop-shadow(0 6px 10px rgba(255, 143, 178, .35))}
+    .floaty.heart{width:38px; animation:float 12s ease-in-out infinite}
+    .floaty.star{width:24px; animation:float 16s ease-in-out infinite reverse}
+    .floaty.rattle{width:72px; animation:float 18s ease-in-out infinite}
+
+    @keyframes float{0%,100%{transform:translateY(0) translateX(0) rotate(0)} 50%{transform:translateY(-20px) translateX(6px) rotate(6deg)}}
+
+    .footer{margin-top:20px; font-size:.8rem; color:#8c6b7b; opacity:.9}
+
+    /* Confetti hearts */
+    #confetti{position:fixed; inset:0; z-index:2; pointer-events:none}
+
+    /* Mobile friendliness */
+    @media (max-width:480px){ .badge{font-size:.9rem} }
+
+    /* Accessibility prefers-reduced-motion */
+    @media (prefers-reduced-motion: reduce){
+      .floaty, #confetti, .starfield{display:none}
+    }
+  </style>
+</head>
+<body>
+  <!-- soft twinkles -->
+  <canvas class="starfield" id="starfield" aria-hidden="true"></canvas>
+  <canvas id="confetti" aria-hidden="true"></canvas>
+
+  <main class="container">
+    <section class="card" role="region" aria-label="Anúncio especial">
+      <span class="badge" aria-hidden="true">✨ Segredo cor-de-rosa ✨</span>
+      <h1 class="title">Uma surpresa muito especial está para chegar.</h1>
+      <!-- <p class="subtitle">(psst… ainda é segredo!)</p> -->
+
+      <!-- Cute pastel illustration (inline SVG, no external files) -->
+      <svg class="illustration" viewBox="0 0 640 420" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <defs>
+          <linearGradient id="g1" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0" stop-color="#ffd7e2"/>
+            <stop offset="1" stop-color="#ffeef4"/>
+          </linearGradient>
+          <linearGradient id="g2" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0" stop-color="#ff9ab6"/>
+            <stop offset="1" stop-color="#ffb9cb"/>
+          </linearGradient>
+        </defs>
+        <!-- cloud -->
+        <g>
+          <ellipse cx="190" cy="210" rx="120" ry="70" fill="url(#g1)"/>
+          <ellipse cx="280" cy="205" rx="100" ry="60" fill="url(#g1)"/>
+          <ellipse cx="240" cy="240" rx="140" ry="80" fill="url(#g1)"/>
+        </g>
+        <!-- sleeping moon -->
+        <g>
+          <path d="M420 130c-55 30-75 98-35 146 40 48 114 55 164 16-26 10-56 7-82-9-53-32-71-101-47-153z" fill="url(#g2)"/>
+          <circle cx="506" cy="206" r="10" fill="#7a1845"/>
+          <path d="M490 224q14 10 30 0" stroke="#7a1845" stroke-width="4" stroke-linecap="round"/>
+          <circle cx="530" cy="182" r="3" fill="#7a1845"/>
+          <circle cx="545" cy="170" r="2.5" fill="#7a1845"/>
+        </g>
+        <!-- hanging mobile with hearts -->
+        <g stroke="#ff9ab6" stroke-width="4" stroke-linecap="round">
+          <path d="M120 110c60-30 120-30 180 0" fill="none"/>
+          <path d="M210 110v54"/>
+          <path d="M165 110v38"/>
+          <path d="M255 110v44"/>
+        </g>
+        <g>
+          <path d="M165 162c10-12 28-12 38 0 0 0-6 22-19 28-13-6-19-28-19-28z" fill="#ff9ab6"/>
+          <path d="M210 168c10-12 28-12 38 0 0 0-6 22-19 28-13-6-19-28-19-28z" fill="#ff9ab6"/>
+          <path d="M255 158c10-12 28-12 38 0 0 0-6 22-19 28-13-6-19-28-19-28z" fill="#ff9ab6"/>
+        </g>
+      </svg>
+
+      <!-- <div class="shh" aria-live="polite">
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M12 3a9 9 0 100 18 9 9 0 000-18Z" stroke="#8a5670" stroke-width="1.5"/><path d="M9 10c.5-.7 1.3-1 3-1s2.5.3 3 1" stroke="#8a5670" stroke-width="1.5" stroke-linecap="round"/><path d="M12 11v5" stroke="#8a5670" stroke-width="1.5" stroke-linecap="round"/><path d="M8 16h8" stroke="#8a5670" stroke-width="1.5" stroke-linecap="round"/></svg>
+        <span>Shhh… mantém o segredo por agora 💗</span> -->
+      </div>
+
+      <!-- floating cute bits -->
+      <svg class="floaty heart" style="top:-10px; left:18%" viewBox="0 0 24 24"><path d="M12 21s-7-4.4-9.5-8.2C.4 9.3 2.1 5 6 5c2.1 0 3.4 1.1 4 2.3C10.6 6.1 11.9 5 14 5c3.9 0 5.6 4.3 3.5 7.8C19 16.6 12 21 12 21z" fill="#ff9ab6"/></svg>
+      <svg class="floaty star" style="top:12%; right:14%" viewBox="0 0 24 24"><path d="M12 2l2.9 6.5 7.1.6-5.4 4.6 1.7 7-6.3-3.8-6.3 3.8 1.7-7L2 9.1l7.1-.6L12 2z" fill="#ffdca8"/></svg>
+      <svg class="floaty rattle" style="bottom:-10px; right:6%" viewBox="0 0 64 64"><circle cx="24" cy="24" r="16" fill="#ffb9cb"/><rect x="32" y="24" width="8" height="24" rx="4" fill="#ff9ab6"/><circle cx="36" cy="54" r="6" fill="#ffd7e2" stroke="#ff9ab6"/></svg>
+
+      <p class="footer">Feito com carinho • 2025</p>
+    </section>
+  </main>
+
+  <script>
+    // Simple starfield twinkles
+    const starCanvas = document.getElementById('starfield');
+    const starCtx = starCanvas.getContext('2d');
+    const stars = []; let W, H;
+    function resize(){ W = starCanvas.width = innerWidth; H = starCanvas.height = innerHeight; }
+    function makeStars(){
+      stars.length = 0;
+      const count = Math.min(120, Math.floor((W*H)/12000));
+      for(let i=0;i<count;i++){
+        stars.push({x:Math.random()*W, y:Math.random()*H, r:Math.random()*1.6+0.4, a:Math.random(), s:Math.random()*0.02+0.005});
+      }
+    }
+    function drawStars(){
+      starCtx.clearRect(0,0,W,H);
+      for(const st of stars){
+        st.a += st.s; const pulse = (Math.sin(st.a)+1)/2; // 0..1
+        starCtx.beginPath(); starCtx.arc(st.x, st.y, st.r*(0.6+pulse*0.8), 0, Math.PI*2);
+        starCtx.fillStyle = 'rgba(255, 220, 240,'+(0.15+0.45*pulse)+')'; starCtx.fill();
+      }
+      requestAnimationFrame(drawStars);
+    }
+
+    // Confetti hearts gently falling
+    const confetti = document.getElementById('confetti');
+    const cctx = confetti.getContext('2d');
+    const flakes = [];
+    function resizeConfetti(){ confetti.width = innerWidth; confetti.height = innerHeight; }
+    function heartPath(ctx, s){
+      const t = s/2; ctx.moveTo(0, t);
+      ctx.bezierCurveTo(0, 0, t, 0, t, t);
+      ctx.bezierCurveTo(t, 0, s, 0, s, t);
+      ctx.bezierCurveTo(s, t*1.6, t*1.2, t*2.2, t, t*2.6);
+      ctx.bezierCurveTo(t*0.8, t*2.2, 0, t*1.6, 0, t);
+    }
+    function makeConfetti(){
+      flakes.length = 0; const n = Math.min(80, Math.floor(innerWidth/12));
+      for(let i=0;i<n;i++){
+        flakes.push({x:Math.random()*innerWidth, y:Math.random()*-innerHeight, s:Math.random()*10+6, v:Math.random()*0.6+0.3, drift:Math.random()*0.6+0.2, rot:Math.random()*Math.PI, spin:(Math.random()*0.02-0.01)});
+      }
+    }
+    function drawConfetti(){
+      cctx.clearRect(0,0,confetti.width, confetti.height);
+      for(const f of flakes){
+        f.y += f.v; f.x += Math.sin(f.rot)*f.drift; f.rot += f.spin;
+        if(f.y > innerHeight+20){ f.y = -20; f.x = Math.random()*innerWidth; }
+        cctx.save(); cctx.translate(f.x, f.y); cctx.rotate(f.rot);
+        cctx.beginPath(); heartPath(cctx, f.s);
+        cctx.fillStyle = ['#ff9ab6','#ffb9cb','#ffd7e2','#ffe6ee'][Math.floor(Math.random()*4)];
+        cctx.fill(); cctx.restore();
+      }
+      requestAnimationFrame(drawConfetti);
+    }
+
+    function onResize(){ resize(); resizeConfetti(); makeStars(); makeConfetti(); }
+    addEventListener('resize', onResize);
+    onResize(); drawStars(); drawConfetti();
+  </script>
+</body>
+</html>
